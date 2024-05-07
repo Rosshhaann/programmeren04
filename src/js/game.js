@@ -13,7 +13,6 @@ export class Game extends Engine {
         console.log("start de game!")
 
 
-
         const fish = new Actor()
         fish.graphics.use(Resources.Fish.toSprite())
         fish.pos = new Vector(Math.floor(Math.random() * 600), Math.floor(Math.random() * 600))
@@ -34,6 +33,8 @@ export class Game extends Engine {
         this.add(backGround)
         this.add(heimer)
         this.add(fish)
+
+        heimer.events.on("click",)
 
     }
 
