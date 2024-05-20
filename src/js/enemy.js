@@ -3,9 +3,11 @@ import { Actor, Vector } from "excalibur";
 export class Enemy extends Actor {
     constructor(enemyType) {
         super({
-            width : 100,
-            height : 100,
-            anchor :new Vector(0.5,0.5)
+            width : 200,
+            height : 200,
+            anchor :new Vector(0.5,0.5),
+            radius:50
+
         })
     }
 

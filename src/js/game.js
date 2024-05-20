@@ -1,12 +1,13 @@
 import '../css/style.css'
-import { Actor, BoundingBox, CollisionType, Color, DisplayMode, EaseTo, Engine, Follow, Font, KillEvent, Label, RepeatForever, RotationType, SolverStrategy, Vector, VectorView } from "excalibur"
+import { Actor, BoundingBox, CollisionType, Color, DisplayMode, EaseTo, Engine, Follow, Font, FontUnit, KillEvent, Label, RepeatForever, RotationType, SolverStrategy, Vector, VectorView } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Background} from './background.js'
-import { Heimer } from './player.js'
+import { Goku } from './goku.js'
 import { Enemy } from './enemy.js'
-import { Fish } from './fish.js'
+import { Freeza } from "./freeza.js";
 import { Level } from './level.js'
 import { Gameover } from './gameover.js'
+import { Gamewon } from './gamewon.js'
 
 export class Game extends Engine {
 
@@ -22,17 +23,24 @@ export class Game extends Engine {
 
     }
 
-
+    score
     
     startGame() {
             this.add('level', new Level())
 
+
+    
+ 
             // Maak nog de classes aan en voeg de waardes toe.
-            // this.add('game-won', new Gamewon())
+            this.add('game-won', new Gamewon())
             this.add('game-over', new Gameover())
             this.goToScene('level')
 
-        // console.log("start de game!")
+            // go to the next level add a class and scene with level-2
+
+
+    
+
 
 
 

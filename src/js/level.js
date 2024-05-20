@@ -1,21 +1,20 @@
 import { Scene } from "excalibur";
-import { Heimer} from "./player"
+import { Goku } from "./goku"
 import { Background } from "./background";
-import { Fish } from "./fish";
+import { Freeza } from "./freeza.js";
 
 export class Level extends Scene {
     onInitialize(engine) {
         const background = new Background()
         this.add(background)
 
-        const heimer = new Heimer()
-        this.add(heimer)
-    
+        const goku = new Goku()
+        this.add(goku)
 
-        for(let i = 0; i < 10 ; i++){
-            const smallEnemy = new Fish()
-            this.add(smallEnemy)
-        }
+
+        const smallEnemy = new Freeza()
+        this.add(smallEnemy)
+
 
 
     }

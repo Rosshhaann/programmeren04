@@ -5,13 +5,13 @@ export class Gun extends Actor{
     constructor(){
         super({
             width:Resources.Gun.width,
-            height:Resources.Gun.height
+            height:Resources.Gun.height,
         })
     }
     onInitialize(){
         this.graphics.use(Resources.Gun.toSprite())
-        this.graphics.flipHorizontal = true
-        this.pos = new Vector(20,45) 
-        this.rotation = 5.75
+        this.pos = new Vector(30,10) 
     }
+    
+    
 }

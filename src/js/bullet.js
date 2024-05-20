@@ -8,9 +8,9 @@ export class Bullet extends Actor{
             radius:5,
         })
         this.pos = pos
-        this.scale = new Vector(2,2)
-        this.vel = new Vector(500,0)
-        this.rotation = 1.6
+        this.scale = new Vector(3,3)
+        this.vel = new Vector(700,0)
+
 
 
 

@@ -1,42 +1,39 @@
-import { Actor, CollisionType, Color, DisplayMode, Engine, Font, Keys, Label, Vector, Scene } from "excalibur";
+import { Actor, CollisionType, Color, DisplayMode, Engine, Font, Keys, Label, Vector, Scene, clamp } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js'
 import { Enemy } from "./enemy.js";
 import { Bullet } from "./bullet.js";
 import { Gun } from "./gun.js";
-import { Fish } from "./fish.js";
+import { Freeza } from "./freeza.js";
 
-export class Heimer extends Actor {
-    
+export class Goku extends Actor {
+
     constructor() {
         super({
-            anchor: new Vector(0.5, 0.5),
-            width: Resources.Heimer.width,
-            height: Resources.Heimer.height,
-
+            width: 100,
+            height: 100
         })
-      
+        // Geef de player 100hp en zet de score op 0
+        this.health = 100
+        this.score = 0
     }
 
-    life
-    
+
     onInitialize(engine) {
-        this.graphics.use(Resources.Heimer.toSprite())
-        this.pos = new Vector(0, 400)
+        this.graphics.use(Resources.Goku.toSprite())
+        this.pos = new Vector(120, 500)
         this.vel = new Vector(0, 0)
-        this.addWeapon()
+        this.addBlast()
         this.on("exitviewport", () => this.resetPositionPlayer())
         this.on("collisionstart", (event) => this.gameOver(event))
-        // Geef de player 3 levens en zet de score op 0
-        this.life = 3 
 
     }
-    addWeapon() {
-        const weapon = new Gun()
-        this.addChild(weapon)
+    addBlast() {
+        const blastWave = new Gun()
+        this.addChild(blastWave)
     }
 
     resetPositionPlayer() {
-        this.pos = new Vector(120, 120)
+        this.pos = new Vector(120, 500)
     }
 
 
@@ -47,18 +44,22 @@ export class Heimer extends Actor {
 
 
     onPostUpdate(engine) {
-        if(this.life === 0){
+        this.pos.y = clamp(this.pos.y, 25, 1250)
+        this.pos.x = clamp(this.pos.x, 0, 100)
+
+        if (this.health === 0) {
             engine.goToScene('game-over')
         }
 
         this.graphics.flipHorizontal = true
         let xspeed = 0;
         let yspeed = 0
+
         if (engine.input.keyboard.isHeld(Keys.Left)) {
-            xspeed = -500;
+            xspeed = -500
         }
         if (engine.input.keyboard.isHeld(Keys.Right)) {
-            xspeed = 500;
+            xspeed = 500
         }
         if (engine.input.keyboard.isHeld(Keys.Up)) {
             yspeed = -500
@@ -72,20 +73,23 @@ export class Heimer extends Actor {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             const bullet = new Bullet(this.pos)
             engine.add(bullet)
+            this.vel = new Vector(xspeed - 100, yspeed - 100)
+            Resources.GunSound.play(0.2)
+
         }
 
     }
     // Hoe krijg de huidige functie naar game engine toe?
-    loseLife(){
-        this.life--
-        this.pos = new Vector(555,555)
-        this.actions.blink(200,200,2)
-        console.log(`${this.life}`);
+    loseHealth() {
+        this.health = this.health - 20
+        this.pos = new Vector(555, 555)
+        this.actions.blink(200, 200, 2)
+        console.log(`${this.health}`);
     }
     gameOver(event) {
-        if (event.other instanceof Fish) {
-            this.loseLife()
-            if(this.life < 0){
+        if (event.other instanceof Freeza) {
+            this.loseHealth()
+            if (this.health < 0) {
                 this.kill()
             }
         }
