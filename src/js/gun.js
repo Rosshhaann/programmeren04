@@ -1,15 +1,15 @@
 import { Actor, Keys, Resource, Vector } from "excalibur";
 import { Resources,ResourceLoader} from "./resources";
 
-export class Gun extends Actor{
+export class Wave extends Actor{
     constructor(){
         super({
-            width:Resources.Gun.width,
-            height:Resources.Gun.height,
+            width:Resources.Wave.width,
+            height:Resources.Wave.height,
         })
     }
     onInitialize(){
-        this.graphics.use(Resources.Gun.toSprite())
+        this.graphics.use(Resources.Wave.toSprite())
         this.pos = new Vector(30,10) 
     }
     

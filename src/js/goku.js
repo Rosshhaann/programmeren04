@@ -2,7 +2,7 @@ import { Actor, CollisionType, Color, DisplayMode, Engine, Font, Keys, Label, Ve
 import { Resources, ResourceLoader } from './resources.js'
 import { Enemy } from "./enemy.js";
 import { Bullet } from "./bullet.js";
-import { Gun } from "./gun.js";
+import { Wave } from "./gun.js";
 import { Freeza } from "./freeza.js";
 
 export class Goku extends Actor {
@@ -10,25 +10,25 @@ export class Goku extends Actor {
     constructor() {
         super({
             width: 100,
-            height: 100
+            height: 100,
+            radius:50
         })
         // Geef de player 100hp en zet de score op 0
         this.health = 100
         this.score = 0
+        this.pos = new Vector(120, 500)
     }
 
 
     onInitialize(engine) {
         this.graphics.use(Resources.Goku.toSprite())
-        this.pos = new Vector(120, 500)
-        this.vel = new Vector(0, 0)
         this.addBlast()
         this.on("exitviewport", () => this.resetPositionPlayer())
         this.on("collisionstart", (event) => this.gameOver(event))
 
     }
     addBlast() {
-        const blastWave = new Gun()
+        const blastWave = new Wave()
         this.addChild(blastWave)
     }
 
