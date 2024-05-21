@@ -3,18 +3,19 @@ import { Resources, ResourceLoader } from './resources.js';
 
 export class Gamewon extends Scene {
     onInitialize(engine) {
-        console.log(this);
-        this.backgroundColor = Color.Gray
-
-        this.scoreLabel = new Label({
-            text: `You have defeated the enemy! GOOD JOB`,
-            pos: new Vector(100, 300),
-            font: new Font({ color: Color.White, size: 50}),
-        });
-
-        
- 
-        this.add(this.scoreLabel)
+        const gameWon = new Label({
+            text: `GEWONNEN MONKEY!`,
+           
+            // font: new Font({ color: Color.Red, size: 30 }),
+        })
+        gameWon.pos =new Vector(engine.halfDrawWidth - 250, engine.halfDrawHeight);
+        gameWon.font.family = 'Sans-serif';
+        gameWon.font.bold = true;
+        gameWon.font.size = 50;
+        gameWon.color = Color.Yellow;
+        gameWon.scale = new Vector(2, 2);
+        gameWon.actions.repeatForever(ctx => ctx.blink(1000, 1000, 400));
+        this.add(gameWon)
     }
 
 }

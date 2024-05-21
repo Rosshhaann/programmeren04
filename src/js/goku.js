@@ -21,6 +21,7 @@ export class Goku extends Actor {
 
 
     onInitialize(engine) {
+        engine.showScore()
         this.graphics.use(Resources.Goku.toSprite())
         this.addBlast()
         this.on("exitviewport", () => this.resetPositionPlayer())

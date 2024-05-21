@@ -9,12 +9,13 @@ export class Freeza extends Enemy {
 
     constructor() {
         super()
-        // Freeze heeft 10 levens 
-        this.life = 3
+
     }
 
     life
     onInitialize(engine) {
+                // Freeze heeft 10 levens 
+                this.life = 3
         console.log("Freeza is created")
         Resources.FreezaGreetings.play(1)
         this.graphics.use(Resources.Freeza.toSprite())
@@ -25,10 +26,10 @@ export class Freeza extends Enemy {
 
         // eventlisteners
         this.on('collisionstart', (event) => { this.killFreeza(event) })
-        this.on("exitviewport", (event) => this.resetPositionFreeza(event))
+        this.on("exitviewport", () => this.resetPositionFreeza())
     }
     onPostUpdate(engine) {
-        if (this.life < 1) {
+        if (this.life <= 0) {
             engine.goToScene('game-won')
         }
     }
@@ -48,9 +49,9 @@ export class Freeza extends Enemy {
             this.pos = new Vector(this.pos.x - 90, this.pos.y = Math.random() * 900)
             this.vel = new Vector(this.vel.x - 40, 0)
             event.other.kill()
-            if (this.life < 1) {
-                // this.pos = new Vector(-100, 0)
-                this.kill()
+            if (this.life <=1) {
+                this.pos = new Vector(-100, 0)
+                // this.kill()
             }
 
 

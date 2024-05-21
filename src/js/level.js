@@ -1,4 +1,4 @@
-import { Scene } from "excalibur";
+import { Color, CoordPlane, FontUnit, Label, Scene, Vector } from "excalibur";
 import { Goku } from "./goku"
 import { Background } from "./background";
 import { Freeza } from "./freeza.js";
@@ -14,6 +14,8 @@ export class Level extends Scene {
 
         const smallEnemy = new Freeza()
         this.add(smallEnemy)
+
+ 
 
 
 
