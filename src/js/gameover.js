@@ -5,7 +5,6 @@ export class Gameover extends Scene {
         const gameOver = new Label({
             text: `GET REKT NOOB!`,
            
-            // font: new Font({ color: Color.Red, size: 30 }),
         })
         gameOver.pos =new Vector(engine.halfDrawWidth - 250, engine.halfDrawHeight);
         gameOver.font.family = 'Sans-serif';
@@ -15,9 +14,7 @@ export class Gameover extends Scene {
         gameOver.scale = new Vector(2, 2);
         gameOver.actions.repeatForever(ctx => ctx.blink(1000, 1000, 400));
         this.add(gameOver)
-        // u lose
 
-        // plaatje of win background
     }
 
 }

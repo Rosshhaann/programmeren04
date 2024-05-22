@@ -4,7 +4,6 @@ export class UI extends ScreenElement {
     score
     scoreLabel
     onInitialize(engine) {
-        console.log("tekst veld is toegevoegd!");
 
         // score
         this.score = 0;

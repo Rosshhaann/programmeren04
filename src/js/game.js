@@ -41,7 +41,7 @@ export class Game extends Engine {
         this.add('game-over', new Gameover())
 
 
-        // go to the next level add a class and scene with level-2
+   
         this.goToScene('level')
 
     }

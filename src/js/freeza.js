@@ -26,7 +26,6 @@ export class Freeza extends Enemy {
         this.on("exitviewport", () => this.resetPositionFreeza())
     }
 
-    // onPostKill wil ik dat hij de scene game won laat zien
     onPostUpdate(engine){
         if(this.life <= 0){
             engine.goToScene('game-won')
@@ -50,10 +49,7 @@ export class Freeza extends Enemy {
             this.scene?.engine.updateScore(1)
             event.other.kill()
             if (this.life <= 1) {
-                this.pos = new Vector(-100, 0)
-                // this.kill()
-   
-                
+                this.pos = new Vector(-100, 0)                
             }
 
 
