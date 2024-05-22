@@ -1,9 +1,10 @@
-import { Actor, Color, Font, Label, ScreenElement, Vector } from "excalibur";
-
+import { Actor, Color, Font, FontUnit, Label, ScreenElement, Vector } from "excalibur";
+import { Resources } from "./resources.js";
 export class UI extends ScreenElement {
     score
     scoreLabel
     onInitialize(engine) {
+
 
         // score
         this.score = 0;
@@ -11,8 +12,12 @@ export class UI extends ScreenElement {
 
         this.scoreLabel = new Label({
             text: `Score: ${this.score}`,
-            pos: new Vector(25, 25),
-            font: new Font({ color: Color.White, size: 30 }),
+            pos: new Vector(20,30),
+            font: Resources.PixelFont.toFont({
+                unit: FontUnit.Px,
+                size: 25,
+                color: Color.White
+            }),
         });
         this.addChild(this.scoreLabel)
 

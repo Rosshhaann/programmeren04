@@ -17,6 +17,7 @@ export class Game extends Engine {
      */
     level
     score 
+    health
     constructor() {
         super({
             width: 1920,

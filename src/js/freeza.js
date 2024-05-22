@@ -10,13 +10,14 @@ export class Freeza extends Enemy {
     constructor(life) {
         super()
         this.life = life
+
     }
     onInitialize(engine) {
-    
+
         console.log("Freeza is created")
         Resources.FreezaGreetings.play(1)
         this.graphics.use(Resources.Freeza.toSprite())
-
+        this.scale = new Vector(0.5, 0.45)
         this.pos = new Vector(1600, Math.random() * 1200)
         this.vel = new Vector(-660, 0)
 
@@ -26,8 +27,8 @@ export class Freeza extends Enemy {
         this.on("exitviewport", () => this.resetPositionFreeza())
     }
 
-    onPostUpdate(engine){
-        if(this.life <= 0){
+    onPostUpdate(engine) {
+        if (this.life <= 0) {
             engine.goToScene('game-won')
         }
 
@@ -44,12 +45,12 @@ export class Freeza extends Enemy {
             // als freeza wordt geraakt door een blast verliest hij 1 leven en zet zijn 10 stappen terug op de X as
             this.pos = new Vector(this.pos.x - 90, this.pos.y = Math.random() * 900)
             this.vel = new Vector(this.vel.x - 40, 0)
-      
+
             // @ts-ignore
             this.scene?.engine.updateScore(1)
             event.other.kill()
             if (this.life <= 1) {
-                this.pos = new Vector(-100, 0)                
+                this.pos = new Vector(-100, 0)
             }
 
 
@@ -58,5 +59,6 @@ export class Freeza extends Enemy {
     }
     resetPositionFreeza(event) {
         this.pos = new Vector(2000, Math.floor(Math.random() * 1080))
+        // Als freeze de viewport verlaat ga naar player en zijn healthbar en drop 20 health
     }
 }

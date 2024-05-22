@@ -9,8 +9,8 @@ export class Level extends Scene {
         const background = new Background()
         this.add(background)
 
-        const goku = new Goku()
-        this.add(goku)
+        this.goku = new Goku()
+        this.add(this.goku)
 
 
 

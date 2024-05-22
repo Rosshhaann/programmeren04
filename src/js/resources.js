@@ -11,7 +11,7 @@ const Resources = {
     GunSound:new Sound("kiblast.mp3"),
     Bullet: new ImageSource('images/bullet.png'),
     Stars: new ImageSource('images/stars.jpeg',{ wrapping: ImageWrapping.Repeat}),
-    PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart')
+    PixelFont: new FontSource('./src/fonts/PressStart2P-Regular.ttf','PressStart')
 }
 const resourceArray = []
 for (const key in Resources) {
