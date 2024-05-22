@@ -4,7 +4,7 @@ import { Resources, ResourceLoader } from './resources.js';
 export class Gamewon extends Scene {
     onInitialize(engine) {
         const gameWon = new Label({
-            text: `GEWONNEN MONKEY!`,
+            text: `GEWONNEN MONKEY! ${engine.score}`,
            
             // font: new Font({ color: Color.Red, size: 30 }),
         })
