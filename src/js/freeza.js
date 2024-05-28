@@ -18,7 +18,7 @@ export class Freeza extends Enemy {
         Resources.FreezaGreetings.play(1)
         this.graphics.use(Resources.Freeza.toSprite())
         this.scale = new Vector(0.5, 0.45)
-        this.pos = new Vector(1600, Math.random() * 1200)
+        this.pos = new Vector(1600, Math.random() * 1000)
         this.vel = new Vector(-660, 0)
 
 
@@ -28,7 +28,7 @@ export class Freeza extends Enemy {
     }
 
     onPostUpdate(engine) {
-        if (this.life <= 0) {
+        if (this.life === 0) {
             engine.goToScene('game-won')
         }
 
@@ -49,7 +49,7 @@ export class Freeza extends Enemy {
             // @ts-ignore
             this.scene?.engine.updateScore(1)
             event.other.kill()
-            if (this.life <= 1) {
+            if (this.life === 0) {
                 this.pos = new Vector(-100, 0)
             }
 
@@ -58,7 +58,7 @@ export class Freeza extends Enemy {
 
     }
     resetPositionFreeza(event) {
-        this.pos = new Vector(2000, Math.floor(Math.random() * 1080))
+        this.pos = new Vector(2000, Math.floor(Math.random() * 900))
         // Als freeze de viewport verlaat ga naar player en zijn healthbar en drop 20 health
     }
 }

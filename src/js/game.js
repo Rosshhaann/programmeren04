@@ -8,6 +8,7 @@ import { Freeza } from "./freeza.js";
 import { Level } from './level.js'
 import { Gameover } from './gameover.js'
 import { Gamewon } from './gamewon.js'
+import { Home } from './home.js'
 
 export class Game extends Engine {
   
@@ -36,14 +37,14 @@ export class Game extends Engine {
 
         this.level = new Level ()
         this.add('level', this.level)
-
+        this.add('home', new Home())
         // Maak nog de classes aan en voeg de waardes toe.
         this.add('game-won', new Gamewon())
         this.add('game-over', new Gameover())
 
 
    
-        this.goToScene('level')
+        this.goToScene('home')
 
     }
     updateScore(score){
