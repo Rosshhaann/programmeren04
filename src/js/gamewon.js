@@ -5,8 +5,6 @@ export class Gamewon extends Scene {
     onInitialize(engine) {
         const gameWon = new Label({
             text: `GEWONNEN !`,
-           
-            // font: new Font({ color: Color.Red, size: 30 }),
         })
         gameWon.pos =new Vector(engine.halfDrawWidth - 250, engine.halfDrawHeight);
         gameWon.font.family = 'Sans-serif';
