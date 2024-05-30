@@ -15,10 +15,8 @@ export class Goku extends Actor {
             radius:50
         })
         // Geef de player 100hp en zet de score op 0
-        this.health = 100
-        this.score = 0
+        this.health = 40
         this.pos = new Vector(120, 500)
-        this.rotation = 0
     }
 
 
@@ -30,7 +28,7 @@ export class Goku extends Actor {
     }
     addBlast() {
         const wave = new Wave()
-        // this.addChild(wave)
+        this.addChild(wave)
     }
 
     resetPositionPlayer() {
@@ -39,19 +37,14 @@ export class Goku extends Actor {
 
 
 
-    // Hoe voeg ik punten toe voor de speler en import ik dit naar de game.js
-    // Hoe verlies ik punten voor de speler en import ik dit naar de game.js
-
 
 
     onPostUpdate(engine) {
+
+
         this.graphics.use(gokuanim.leftAnim)
         this.pos.y = clamp(this.pos.y, 25, 1250)
         this.pos.x = clamp(this.pos.x, 0, 100)
-
-        if (this.health === 0) {
-            engine.goToScene('game-over')
-        }
         this.addBlast()
         this.graphics.flipHorizontal = true
         this.rotation = 0
@@ -98,8 +91,8 @@ export class Goku extends Actor {
     gameOver(event) {
         if (event.other instanceof Freeza) {
             this.loseHealth(20)
-            if (this.health < 0) {
-                this.kill()
+            if (this.health === 0) {
+                this.scene?.engine.goToScene('game-over')
             }
         }
     }

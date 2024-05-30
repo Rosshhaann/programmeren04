@@ -21,7 +21,7 @@ export class UI extends ScreenElement {
         });
         this.addChild(this.scoreLabel)
 
-        // backdrop levens
+        // backdrop levens -- werkt helaas niet
         let healthbarBackground = new Actor({ x: 20, y: 55, color: Color.Gray, width: 210, height: 30 })
         healthbarBackground.graphics.anchor = Vector.Zero
         this.addChild(healthbarBackground)
@@ -33,7 +33,6 @@ export class UI extends ScreenElement {
 
  
 
-        // aantal bullets onderaan het scherm
     }
     //    update als ik 1 van de 3 levens verlies
         updateScore(score) {

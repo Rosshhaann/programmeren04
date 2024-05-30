@@ -29,21 +29,15 @@ export class Game extends Engine {
         this.start(ResourceLoader).then(() => this.startGame())
 
     }
-
-  
- 
-
     startGame() {
 
         this.level = new Level ()
         this.add('level', this.level)
         this.add('home', new Home())
-        // Maak nog de classes aan en voeg de waardes toe.
         this.add('game-won', new Gamewon())
         this.add('game-over', new Gameover())
 
 
-   
         this.goToScene('home')
 
     }

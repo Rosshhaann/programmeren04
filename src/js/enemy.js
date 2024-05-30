@@ -6,7 +6,7 @@ export class Enemy extends Actor {
             width : 100,
             height : 100,
             anchor :new Vector(0.5,0.5),
-            radius:50
+            radius:100
 
         })
     }
