@@ -44,7 +44,7 @@ export class Freeza extends Enemy {
             if (this.life === 0) {
                this.scene?.engine.goToScene('game-won')
             }
-
+ 
         }
 
     }
