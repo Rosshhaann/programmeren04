@@ -14,7 +14,7 @@ export class Level extends Scene {
 
 
 
-        const smallEnemy = new Freeza(3)
+        const smallEnemy = new Freeza(5)
         this.add(smallEnemy)
 
         this.ui = new UI()

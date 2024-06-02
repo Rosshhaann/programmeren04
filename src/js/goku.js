@@ -27,6 +27,7 @@ export class Goku extends Actor {
 
     }
     addBlast() {
+
         const wave = new Wave()
         this.addChild(wave)
     }
