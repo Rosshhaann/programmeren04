@@ -18,12 +18,15 @@ export class Freeza extends Enemy {
         Resources.FreezaGreetings.play(1)
         this.graphics.use(Resources.Freeza.toSprite())
         this.scale = new Vector(0.5, 0.45)
+
+
+
         this.pos = new Vector(1600, Math.random() * 1000)
         this.vel = new Vector(-660, 0)
 
 
         // eventlisteners
-        this.on('collisionstart', (event) => { this.killFreeza(event) })
+
         this.on("exitviewport", () => this.resetPositionFreeza())
     }
 
